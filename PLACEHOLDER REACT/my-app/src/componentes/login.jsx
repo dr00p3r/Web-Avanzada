@@ -12,6 +12,8 @@ export default function FrmLogin() {
         password: ''
     });
 
+    const [errorMessage, setErrorMessage] = useState('');
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevState) => ({
@@ -49,7 +51,11 @@ export default function FrmLogin() {
         }}>
             <Inputs.TxtInput name={'username'} label={'Usuario'} onChange={handleChange} value={formData.username}/>
             <Inputs.PasswordInput name={'password'} label={'Contraseña'} onChange={handleChange} value={formData.password}/>
-            {errorMessage && <p style={{ color: 'red', marginTop: '10px' }}>{errorMessage}</p>}
+            errorMessage ? <ErrorMessage msg={errorMessage}/>
         </API_FORM>
     );
+}
+
+function ErrorMessage({msg}){
+    <p style={{ color: 'red', marginTop: '10px' }}> {msg} </p>
 }
