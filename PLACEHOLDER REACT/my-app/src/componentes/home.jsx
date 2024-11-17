@@ -19,6 +19,7 @@ export default function Home(){
 async function checkLoginStatus() {
     try {
         const response = await axios.get('https://web-avanzada-1.onrender.com/get-token', { withCredentials: true });
+        console.log(response);
         return response.data.token ? true : false;
     } catch (error) {
         console.error(error);
