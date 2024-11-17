@@ -91,7 +91,7 @@ function HomeActions(){
             <div className="container text-center mt-5">
                 <div className="mt-4">
                     <div className="mb-3">
-                        <h1> Hola, </h1>
+                        <h1> Hola, {username} </h1>
                     </div>
                     <div className="mb-3">
                         <button onClick={() => logout()} 
