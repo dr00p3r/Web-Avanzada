@@ -34,12 +34,12 @@ export default function FrmLogin() {
                 navigate('/');
             }
             if (response.status == 400){
-                setErrorMessage(response.data.error || 'Error al iniciar sesión');
+                setErrorMessage('Error al iniciar sesión');
             }
         } 
         catch (error) {
             if (error.response) {
-                setErrorMessage(error.response.data.error || 'Error al iniciar sesión');
+                setErrorMessage('Error al iniciar sesión');
             } else {
                 console.error(error);
                 setErrorMessage('Error de conexión con el servidor');
