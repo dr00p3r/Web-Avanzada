@@ -1,4 +1,4 @@
-import {React, useEffect} from 'react';
+import {React, useEffect, useState} from 'react';
 import FrmLogin from './login';
 import FrmRegister from './reg_form';
 import { BrowserRouter as Router, Route, Routes, useNavigate  } from 'react-router-dom';
@@ -28,6 +28,8 @@ async function checkLoginStatus() {
 function HomeActions(){
 
     const navigate = useNavigate();
+
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
         const checkToken = async () => {
