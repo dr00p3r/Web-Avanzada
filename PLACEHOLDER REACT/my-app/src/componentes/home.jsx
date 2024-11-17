@@ -1,3 +1,4 @@
+import {React, useEffect} from 'react';
 import FrmLogin from './login';
 import FrmRegister from './reg_form';
 import { BrowserRouter as Router, Route, Routes, useNavigate  } from 'react-router-dom';
@@ -15,11 +16,27 @@ export default function Home(){
     );
 }
 
-async function HomeActions(){
-    const userToken = await axios.get(process.env.COOKIE_ROUTE);
-    console.log(userToken);
+async function checkLoginStatus() {
+    try {
+        const response = await axios.get('http://localhost:3000/get-token', { withCredentials: true });
+        return response.data.token ? true : false;
+    } catch (error) {
+        return false;
+    }
+}
+
+function HomeActions(){
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const checkToken = async () => {
+            const loggedIn = await checkLoginStatus();
+            setIsLoggedIn(loggedIn);
+        };
+        
+        checkToken();
+    }, []);
 
     return(
         <div className="container text-center mt-5">
