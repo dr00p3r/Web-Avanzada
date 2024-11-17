@@ -1,4 +1,4 @@
-export default function txtInput(nombreInput, label, value, pattern='') {
+function txtInput(nombreInput, label, value, pattern='') {
     return (
         <div className="form-group">
         <label htmlFor={nombreInput}>{label}</label>
@@ -15,7 +15,7 @@ export default function txtInput(nombreInput, label, value, pattern='') {
     );
 }
 
-export default function passwordInput(nombreInput, label, value, pattern='') {
+function passwordInput(nombreInput, label, value, pattern='') {
     return (
         <div className="form-group">
         <label htmlFor={nombreInput}>{label}</label>
@@ -33,7 +33,7 @@ export default function passwordInput(nombreInput, label, value, pattern='') {
 }
 
 
-export default function dateInput(nombreInput, label, value, max) {
+function dateInput(nombreInput, label, value, max) {
     return (
         <div className="form-group">
         <label htmlFor={nombreInput}>{label}</label>
@@ -49,3 +49,5 @@ export default function dateInput(nombreInput, label, value, max) {
         </div>
     );
 }
+
+export default {txtInput, dateInput, passwordInput};

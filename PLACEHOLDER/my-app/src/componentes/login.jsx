@@ -21,7 +21,7 @@ export default function frmLogin() {
 
     return (
         <API_FORM data={{
-            onSubmit: login(e),
+            onSubmit: (e) => login(e),
             msg: 'Iniciar Sesión'
         }}>
             <txtInput name={'username'} label={'Usuario'} value={formData.username}></txtInput>

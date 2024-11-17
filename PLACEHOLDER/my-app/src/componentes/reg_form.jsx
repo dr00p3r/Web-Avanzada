@@ -21,7 +21,7 @@ export default function frmRegister() {
 
     return (
         <API_FORM data={{
-            onSubmit: register(e),
+            onSubmit: (e) => register(e),
             msg: 'Registrar'
         }}>
             <txtInput name={'name'} label={'Nombre'} value={formData.name}></txtInput>
