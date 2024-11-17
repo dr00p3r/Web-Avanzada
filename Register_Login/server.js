@@ -8,7 +8,7 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors({
-    origin: 'https://web-avanzada-eight.vercel.app/',
+    origin: 'https://web-avanzada-eight.vercel.app',
     credentials: true
 }));
 
