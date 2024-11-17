@@ -36,7 +36,7 @@ app.post(`/login`, login);
 
 app.post(`/register`, register);
 
-app.get('/get-token', (req, res) => {
+app.get('/get-token', (req, verifyToken, res) => {
     const token = req.cookies.userToken;
     if (!token) {
         return res.status(404).json({ error: "Token no encontrado" });

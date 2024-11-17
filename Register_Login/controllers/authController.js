@@ -32,7 +32,8 @@ const login = async (req, res) => {
 
         res.cookie('userToken', token, {
             httpOnly: true,
-            maxAge: 3 * 60 * 60 * 1000
+            sameSite: 'None',
+            maxAge: 3 * 60 * 60 * 1000,
         });
         
         res.status(200).json({message: "Inicio de sesión exitoso" });
