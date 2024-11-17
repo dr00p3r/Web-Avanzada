@@ -5,10 +5,8 @@ import axios from 'axios';
 
 export default function FrmLogin() {
     const [formData, setFormData] = useState({
-        name: '',
         username: '',
-        password: '',
-        date: ''
+        password: ''
     });
 
     const handleChange = (e) => {
@@ -22,12 +20,12 @@ export default function FrmLogin() {
     const login = async (e) => {
         e.preventDefault(); 
 
-        console.log(formData);
+        console.log( JSON.stringify(formData));
 
         try {
             const response = await axios.post(
             'https://web-avanzada-1.onrender.com/login',
-            formData
+            JSON.stringify(formData)
             );
             console.log(response);
         } 
