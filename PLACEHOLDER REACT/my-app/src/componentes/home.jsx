@@ -3,8 +3,8 @@ import FrmRegister from './reg_form';
 import { BrowserRouter as Router, Route, Routes, useNavigate  } from 'react-router-dom';
 import axios from 'axios';
 
-export default async function Home(){
-    const userToken = await axios.get(process.env.COOKIE_ROUTE);
+export default function Home(){
+    const userToken = async ()=> await axios.get(process.env.COOKIE_ROUTE);
     console.log(userToken);
 
     return(
