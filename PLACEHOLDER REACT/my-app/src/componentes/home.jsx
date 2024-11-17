@@ -21,6 +21,7 @@ async function checkLoginStatus() {
         const response = await axios.get(process.env.COOKIE_ROUTE, { withCredentials: true });
         return response.data.token ? true : false;
     } catch (error) {
+        console.error(error);
         return false;
     }
 }
