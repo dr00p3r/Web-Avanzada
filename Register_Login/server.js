@@ -8,13 +8,7 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors({
-    origin: function(origin, callback) {
-        if (origin === 'http://localhost:3000' || origin === 'https://web-avanzada-eight.vercel.app') {
-            callback(null, true);
-        } else {
-            callback(new Error('CORS no permitido'), false);
-        }
-    },
+    origin: 'https://web-avanzada-eight.vercel.app',
     credentials: true,
 }));
 
