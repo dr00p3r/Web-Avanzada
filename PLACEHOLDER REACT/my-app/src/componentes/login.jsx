@@ -33,7 +33,12 @@ export default function FrmLogin() {
             }
         } 
         catch (error) {
-            console.error('Error al iniciar sesión:', error);
+            if (error.response) {
+                setErrorMessage(error.response.data.error || 'Error al iniciar sesión');
+            } else {
+                console.error(error);
+                setErrorMessage('Error de conexión con el servidor');
+            }
         }
     };
 
@@ -44,6 +49,7 @@ export default function FrmLogin() {
         }}>
             <Inputs.TxtInput name={'username'} label={'Usuario'} onChange={handleChange} value={formData.username}/>
             <Inputs.PasswordInput name={'password'} label={'Contraseña'} onChange={handleChange} value={formData.password}/>
+            {errorMessage && <p style={{ color: 'red', marginTop: '10px' }}>{errorMessage}</p>}
         </API_FORM>
     );
 }
