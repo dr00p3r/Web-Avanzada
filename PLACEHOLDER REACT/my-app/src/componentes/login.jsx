@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import API_FORM from './form';
 import Inputs from './inputs.jsx';
 import axios from 'axios';
-import useNavigate from 'react-router-dom';
+import { useNavigate  } from 'react-router-dom';
 
 export default function FrmLogin() {
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         username: '',
         password: ''
@@ -28,7 +30,7 @@ export default function FrmLogin() {
             );
             console.log(response);
             if (response.status == 200){
-                useNavigate('../');
+                navigate('/');
             }
         } 
         catch (error) {
