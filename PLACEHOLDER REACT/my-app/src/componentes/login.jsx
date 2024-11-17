@@ -20,12 +20,12 @@ export default function FrmLogin() {
     const login = async (e) => {
         e.preventDefault(); 
 
-        console.log( JSON.stringify(formData));
+        console.log(JSON.stringify(formData));
 
         try {
             const response = await axios.post(
             'https://web-avanzada-1.onrender.com/login',
-            JSON.stringify(formData)
+            formData
             );
             console.log(response);
         } 

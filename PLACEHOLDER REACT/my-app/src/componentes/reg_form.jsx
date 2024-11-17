@@ -30,7 +30,7 @@ export default function FrmRegister() {
         try {
             const response = await axios.post(
             'https://web-avanzada-1.onrender.com/register',
-            JSON.stringify(formData)
+            formData
             );  
         } 
         catch (error) {
