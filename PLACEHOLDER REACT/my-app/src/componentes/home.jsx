@@ -8,11 +8,7 @@ export default function Home(){
     return(
         <Router>
             <Routes>
-                <Route path="/" element={<HomeActions data={
-                    {
-                        logIn: false,
-                        username: 'guest'
-                    }}/>} />
+                <Route path="/" element={<HomeActions/>} />
                 <Route path="/register" element={<FrmRegister />} />
                 <Route path="/login" element={<FrmLogin />} />
             </Routes>
@@ -20,7 +16,7 @@ export default function Home(){
     );
 }
 
-async function HomeActions({data}){
+async function HomeActions(){
     const userToken = await axios.get(process.env.COOKIE_ROUTE);
     console.log(userToken);
 
