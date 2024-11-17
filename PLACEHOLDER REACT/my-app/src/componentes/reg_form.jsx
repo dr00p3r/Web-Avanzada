@@ -40,7 +40,7 @@ export default function FrmRegister() {
 
     return (
         <API_FORM data={{
-            onSubmit: register,
+            onSubmit: (e) => register(e),
             msg: 'Registrar'
         }}>
             <Inputs.TxtInput name={'name'} label={'Nombre'} onChange={handleChange} value={formData.name}/>

@@ -36,7 +36,7 @@ export default function FrmLogin() {
 
     return (
         <API_FORM data={{
-            onSubmit: login,
+            onSubmit: (e) => login(e),
             msg: 'Iniciar Sesión'
         }}>
             <Inputs.TxtInput name={'username'} label={'Usuario'} onChange={handleChange} value={formData.username}/>
