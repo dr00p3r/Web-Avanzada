@@ -26,7 +26,7 @@ export default function FrmLogin() {
         try {
             const response = await axios.post(
             'https://web-avanzada-1.onrender.com/login',
-            formData
+            formData,  { withCredentials: true }
             );
             if (response.status == 200){
                 navigate('/');
