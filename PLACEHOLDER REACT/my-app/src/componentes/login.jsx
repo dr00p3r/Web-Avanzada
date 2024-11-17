@@ -28,7 +28,6 @@ export default function FrmLogin() {
             'https://web-avanzada-1.onrender.com/login',
             formData
             );
-            console.log(response);
             if (response.status == 200){
                 navigate('/');
             }

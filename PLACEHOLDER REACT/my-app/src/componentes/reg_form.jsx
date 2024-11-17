@@ -29,8 +29,7 @@ export default function FrmRegister() {
             const response = await axios.post(
             'https://web-avanzada-1.onrender.com/register',
             formData
-            );  
-            console.log(response);
+            );
         } 
         catch (error) {
             console.error('Error al registrar:', error);
