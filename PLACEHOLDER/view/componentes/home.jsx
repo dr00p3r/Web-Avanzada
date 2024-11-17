@@ -1,5 +1,7 @@
 const AXIOS = require('axios');
 import 'bootstrap/dist/css/bootstrap.min.css';
+import frmLogin from './login';
+import frmRegister from './reg_form';
 
 
 function Home({data}){
@@ -13,10 +15,10 @@ function Home({data}){
                 <h1>HOLIII</h1>
                 <div className="mt-4">
                     <div className="mb-3">
-                        <button onClick='' className="btn btn-primary btn-lg">Registrar</button>
+                        <button onClick={<frmRegister></frmRegister>} className="btn btn-primary btn-lg"> Registrarse </button>
                     </div>
                     <div className="mb-3">
-                        <button onClick='' className="btn btn-secondary btn-lg">Iniciar Sesión</button>
+                        <button onClick={<frmLogin></frmLogin>} className="btn btn-secondary btn-lg"> Iniciar Sesión </button>
                     </div>
                 </div>
             </div>
