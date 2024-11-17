@@ -1,10 +1,7 @@
-const AXIOS = require('axios');
-import 'bootstrap/dist/css/bootstrap.min.css';
 import frmLogin from './login';
 import frmRegister from './reg_form';
 
-
-function Home({data}){
+export default function Home({data}){
     if(data.logIn){
         return(
             <h1 className="container text-center mt-5">HOLIII {data.username}!</h1>
@@ -25,12 +22,5 @@ function Home({data}){
         );
     }
 }
-
-let userCookie = await AXIOS.get('/get-cookie', { withCredentials: true });
-console.log(userCookie);
-ReactDOM.render(<Home data={{
-    logIn: false,
-    username: userCookie.username
-}} />, document.getElementById('root'));
 
 
