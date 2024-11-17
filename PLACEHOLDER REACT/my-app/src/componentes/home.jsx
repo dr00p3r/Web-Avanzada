@@ -41,6 +41,7 @@ function HomeActions(){
                 {},
                 { withCredentials: true }
             );
+            setIsLoggedIn(false);
             navigate('/')
         } catch (error) {
             console.error('Error al cerrar sesión:', error);
@@ -49,6 +50,7 @@ function HomeActions(){
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [username, setUsername] = useState(''); 
+    const [isLoading, setIsLoading] = useState(true); // Estado de carga
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -64,11 +66,17 @@ function HomeActions(){
                 }
             } catch (error) {
                 console.error('Error al obtener datos del usuario:', error);
+            } finally {
+                setIsLoading(false); // Finaliza la carga
             }
         };
 
         fetchUserData();
     }, []);
+
+    if (isLoading) {
+        return <div className="text-center mt-5">Cargando...</div>;
+    }
 
     if(!isLoggedIn){
         return(
