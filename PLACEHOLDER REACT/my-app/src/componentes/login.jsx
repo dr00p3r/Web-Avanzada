@@ -51,7 +51,7 @@ export default function FrmLogin() {
         }}>
             <Inputs.TxtInput name={'username'} label={'Usuario'} onChange={handleChange} value={formData.username}/>
             <Inputs.PasswordInput name={'password'} label={'Contraseña'} onChange={handleChange} value={formData.password}/>
-            errorMessage ? <ErrorMessage msg={errorMessage}/>
+            <ErrorMessage msg={errorMessage}/>
         </API_FORM>
     );
 }
