@@ -28,6 +28,9 @@ function Home({data}){
 
 let userCookie = await AXIOS.get('/get-cookie', { withCredentials: true });
 console.log(userCookie);
-ReactDOM.render(<Home logIn = {false} username = {userCookie.username}/>, document.getElementById('root'));
+ReactDOM.render(<Home data={{
+    logIn: false,
+    username: userCookie.username
+}} />, document.getElementById('root'));
 
 

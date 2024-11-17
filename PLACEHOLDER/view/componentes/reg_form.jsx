@@ -20,7 +20,10 @@ export default function frmRegister() {
     };
 
     return (
-        <API_FORM onSubmit={register(e)} msg={'Registrar'}>
+        <API_FORM data={{
+            onSubmit: register(e),
+            msg: 'Registrar'
+        }}>
             <txtInput name={'name'} label={'Nombre'} value={formData.name}></txtInput>
             <txtInput name={'username'} label={'Usuario'} value={formData.username}></txtInput>
             <passwordInput name={'password'} label={'Contraseña'} value={formData.password}></passwordInput>
