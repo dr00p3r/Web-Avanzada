@@ -30,7 +30,7 @@ const login = async (req, res) => {
         const token = jwt.sign({ id: user._id , username: user.username}, 
             process.env.JWT_SECRET, { expiresIn: '3h' });
 
-        res.cookie('userToken', token, {
+        res.cookie('token', token, {
             httpOnly: true,
             secure: true,
             sameSite: 'None',
@@ -44,7 +44,7 @@ const login = async (req, res) => {
 };
 
 const verifyToken = (req, res, next) => {
-    const token = req.cookies.userToken;
+    const token = req.cookies.token;
     console.log(token);
     if (!token) return res.status(403).json({ error: "Acceso denegado" });
 
