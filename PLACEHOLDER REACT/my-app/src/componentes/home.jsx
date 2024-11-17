@@ -20,8 +20,8 @@ export default function Home(){
     );
 }
 
-function HomeActions({data}){
-    const userToken = async () => await axios.get(process.env.COOKIE_ROUTE);
+async function HomeActions({data}){
+    const userToken = await axios.get(process.env.COOKIE_ROUTE);
     console.log(userToken);
 
     const navigate = useNavigate();
