@@ -57,4 +57,16 @@ const verifyToken = (req, res, next) => {
     }
 };
 
-module.exports = { register, login, verifyToken };
+const getUserInfo = (req, res) => {
+    try {
+        if (!req.user) {
+            return res.status(403).json({ error: "Usuario no autenticado" });
+        }
+        
+        res.status(200).json({ username: req.user.username });
+    } catch (err) {
+        res.status(500).json({ error: "Error del servidor" });
+    }
+};
+
+module.exports = { register, login, verifyToken, getUserInfo };

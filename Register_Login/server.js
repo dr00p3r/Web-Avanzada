@@ -2,7 +2,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const DB = require('./config.js');
-const {login, register, verifyToken} = require('./controllers/authController.js');
+const {login, register, verifyToken, getUserInfo} = require('./controllers/authController.js');
 const cors = require('cors');
 
 const app = express();
@@ -44,3 +44,14 @@ app.get('/get-token', verifyToken, (req, res) => {
     }
     res.status(200).json({ token });
 });
+
+app.post('/logout', (req, res) => {
+    res.clearCookie('token', {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'None',
+    });
+    res.status(200).json({ message: 'Sesión cerrada exitosamente' });
+});
+
+app.get('/user-info', verifyToken, getUserInfo);
