@@ -33,13 +33,13 @@ export default function FrmLogin() {
             if (response.status == 200){
                 navigate('/');
             }
-            if (response.status == 400){
-                setErrorMessage('Error al iniciar sesión');
-            }
         } 
         catch (error) {
             if (error.response) {
-                setErrorMessage('Error al iniciar sesión');
+                console.error(error.response);
+                if (error.response.status === 400) {
+                    setErrorMessage(error.response.data.error || 'Error al iniciar sesión');
+                }
             } else {
                 console.error(error);
                 setErrorMessage('Error de conexión con el servidor');
