@@ -22,7 +22,7 @@ export default function Home(){
 
 function HomeActions({data}){
     const userToken = async () => await axios.get(process.env.COOKIE_ROUTE);
-    console.log(userToken());
+    console.log(userToken);
 
     const navigate = useNavigate();
     if(data.logIn){
