@@ -8,6 +8,7 @@ export default function FrmLogin() {
         e.preventDefault(); 
 
         let formData = new FormData(document.getElementById("frmSign"));
+        console.log(formData);
 
         try {
             const response = await axios.post(
