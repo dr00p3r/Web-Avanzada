@@ -4,8 +4,6 @@ import { BrowserRouter as Router, Route, Routes, useNavigate  } from 'react-rout
 import axios from 'axios';
 
 export default function Home(){
-    const userToken = async ()=> await axios.get(process.env.COOKIE_ROUTE);
-    console.log(userToken);
 
     return(
         <Router>
@@ -23,6 +21,9 @@ export default function Home(){
 }
 
 function HomeActions({data}){
+    const userToken = async () => await axios.get(process.env.COOKIE_ROUTE);
+    console.log(userToken());
+
     const navigate = useNavigate();
     if(data.logIn){
         return(
