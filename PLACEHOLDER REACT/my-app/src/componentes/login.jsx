@@ -33,6 +33,9 @@ export default function FrmLogin() {
             if (response.status == 200){
                 navigate('/');
             }
+            if (response.status == 400){
+                setErrorMessage(response.data.error || 'Error al iniciar sesión');
+            }
         } 
         catch (error) {
             if (error.response) {
