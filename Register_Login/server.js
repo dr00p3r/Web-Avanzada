@@ -5,6 +5,12 @@ const DB = require('./config.js');
 const {login, register, verifyToken} = require('./controllers/authController.js');
 const app = express();
 
+const cors = require('cors');
+
+app.use(cors({
+    origin: 'https://web-avanzada-eight.vercel.app',
+}));
+
 app.use(cookieParser());
 
 const port = 3000;
