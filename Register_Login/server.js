@@ -11,6 +11,11 @@ app.use(cors({
     origin: 'https://web-avanzada-eight.vercel.app',
 }));
 
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true, 
+}));
+
 app.use(cookieParser());
 
 const port = 3000;
