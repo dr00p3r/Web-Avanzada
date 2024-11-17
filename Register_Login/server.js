@@ -8,13 +8,13 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors({
-    origin: 'https://web-avanzada-eight.vercel.app',
-    credentials: true,
+    origin: 'https://web-avanzada-eight.vercel.app/',
+    credentials: true
 }));
 
 app.use(cookieParser());
 
-const port = 3000;
+const port = 5000;
 
 async function connect_db() {
     await DB();
