@@ -36,12 +36,10 @@ export default function FrmLogin() {
         } 
         catch (error) {
             if (error.response) {
-                console.error(error.response);
                 if (error.response.status === 400) {
                     setErrorMessage(error.response.data.error || 'Error al iniciar sesión');
                 }
             } else {
-                console.error(error);
                 setErrorMessage('Error de conexión con el servidor');
             }
         }
@@ -60,5 +58,7 @@ export default function FrmLogin() {
 }
 
 function ErrorMessage({msg}){
-    <p style={{ color: 'red', marginTop: '10px' }}> {msg} </p>
+    return(
+        <p style={{ color: 'red', marginTop: '10px' }}> {msg} </p>
+    );
 }
