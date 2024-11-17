@@ -25,16 +25,34 @@ const login = async (req, res) => {
         const user = await User.findOne({ username });
         if (!user) return res.status(400).json({ error: "Usuario no encontrado" });
 
-        const isMatch = await bcrypt.compare(password, USER.password);
+        const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) return res.status(400).json({ error: "Contraseña incorrecta" });
 
         const token = jwt.sign({ id: user._id , username: user.username}, 
             process.env.JWT_SECRET, { expiresIn: '3h' });
+
+        res.cookie('userToken', token, {
+            httpOnly: true,
+            maxAge: 3 * 60 * 60 * 1000
+        });
         
-        res.status(200).json({ token, message: "Inicio de sesión exitoso" });
+        res.status(200).json({message: "Inicio de sesión exitoso" });
     } catch (err) {
         res.status(500).json({ error: "Error del servidor" });
     }
 };
 
-module.exports = { register, login };
+const verifyToken = (req, res, next) => {
+    const token = req.cookies.userToken;
+    if (!token) return res.status(403).json({ error: "Acceso denegado" });
+
+    try {
+        const verified = jwt.verify(token, process.env.JWT_SECRET);
+        req.user = verified;
+        next();
+    } catch (err) {
+        res.status(401).json({ error: "Token inválido" });
+    }
+};
+
+module.exports = { register, login, verifyToken };
