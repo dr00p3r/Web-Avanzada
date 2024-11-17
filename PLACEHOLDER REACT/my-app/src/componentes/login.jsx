@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import API_FORM from './form';
 import Inputs from './inputs.jsx';
 import axios from 'axios';
+import useNavigate from 'react-router-dom';
 
 export default function FrmLogin() {
     const [formData, setFormData] = useState({
@@ -20,14 +21,15 @@ export default function FrmLogin() {
     const login = async (e) => {
         e.preventDefault(); 
 
-        console.log(JSON.stringify(formData));
-
         try {
             const response = await axios.post(
             'https://web-avanzada-1.onrender.com/login',
             formData
             );
             console.log(response);
+            if (response.status == 200){
+                useNavigate('../');
+            }
         } 
         catch (error) {
             console.error('Error al iniciar sesión:', error);
