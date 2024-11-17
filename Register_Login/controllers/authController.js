@@ -44,6 +44,7 @@ const login = async (req, res) => {
 
 const verifyToken = (req, res, next) => {
     const token = req.cookies.userToken;
+    console.log(token);
     if (!token) return res.status(403).json({ error: "Acceso denegado" });
 
     try {
