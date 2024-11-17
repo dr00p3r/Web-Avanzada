@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TxtInput({ name, label, maxlength = -1 }) {
+function TxtInput({ name, label, maxlength = -1, onChange, value }) {
     return (
         <div className="mb-3">
             <label htmlFor={name} className="form-label">{label}</label>
@@ -8,14 +8,16 @@ function TxtInput({ name, label, maxlength = -1 }) {
                 type="text"
                 id={name} 
                 name={name}
-                maxLength={maxlength} // Propiedad corregida: debería ser `maxLength` con mayúscula
-                className="form-control" // form-control aplica el estilo de Bootstrap al input
+                maxLength={maxlength}
+                className="form-control" 
+                onChange={onChange}
+                value={value}
             />
         </div>
     );
 }
 
-function PasswordInput({ name, label, maxlength = -1 }) {
+function PasswordInput({ name, label, maxlength = -1, onChange, value}) {
     return (
         <div className="mb-3">
             <label htmlFor={name} className="form-label">{label}</label>
@@ -25,12 +27,14 @@ function PasswordInput({ name, label, maxlength = -1 }) {
                 name={name}
                 maxLength={maxlength}
                 className="form-control"
+                onChange={onChange}
+                value={value}
             />
         </div>
     );
 }
 
-function DateInput({ name, label, max }) {
+function DateInput({ name, label, max, onChange, value}) {
     return (
         <div className="mb-3">
             <label htmlFor={name} className="form-label">{label}</label>
@@ -40,6 +44,8 @@ function DateInput({ name, label, max }) {
                 name={name}
                 max={max}
                 className="form-control"
+                onChange={onChange}
+                value={value}
             />
         </div>
     );

@@ -3,13 +3,26 @@ import Inputs from './inputs.jsx';
 import axios from 'axios';
 
 export default function FrmRegister() {
-    let actualDate = new Date();
+    const actualDate = new Date();
+    const formattedDate = actualDate.toISOString().split('T')[0];
     
+    const [formData, setFormData] = useState({
+        name: '',
+        username: '',
+        password: '',
+        bornDate: ''
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevState) => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+
     const register = async (e) => {
         e.preventDefault(); 
-
-        let formData = new FormData(document.getElementById("frmSign"));
-        console.log(formData);
 
         try {
             const response = await axios.post(
@@ -24,13 +37,13 @@ export default function FrmRegister() {
 
     return (
         <API_FORM data={{
-            onSubmit: (e) => register(e),
+            onSubmit: register,
             msg: 'Registrar'
         }}>
-            <Inputs.TxtInput name={'name'} label={'Nombre'}/>
-            <Inputs.TxtInput name={'username'} label={'Usuario'}/>
-            <Inputs.PasswordInput name={'password'} label={'Contraseña'}/>
-            <Inputs.DateInput name={'date'} label={'Fecha de nacimiento'} max={actualDate}/>
+            <Inputs.TxtInput name={'name'} label={'Nombre'} onChange={handleChange} value={formData.name}/>
+            <Inputs.TxtInput name={'username'} label={'Usuario'} onChange={handleChange} value={formData.username}/>
+            <Inputs.PasswordInput name={'password'} label={'Contraseña'} onChange={handleChange} value={formData.password}/>
+            <Inputs.DateInput name={'bornDate'} label={'Fecha de nacimiento'} max={formattedDate} onChange={handleChange} value={formData.bornDate}/>
         </API_FORM>
     );
 }

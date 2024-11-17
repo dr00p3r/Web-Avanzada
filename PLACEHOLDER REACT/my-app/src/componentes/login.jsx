@@ -3,11 +3,24 @@ import Inputs from './inputs.jsx';
 import axios from 'axios';
 
 export default function FrmLogin() {
-    
+    const [formData, setFormData] = useState({
+        name: '',
+        username: '',
+        password: '',
+        date: ''
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevState) => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+
     const login = async (e) => {
         e.preventDefault(); 
 
-        let formData = new FormData(document.getElementById("frmSign"));
         console.log(formData);
 
         try {
@@ -24,11 +37,11 @@ export default function FrmLogin() {
 
     return (
         <API_FORM data={{
-            onSubmit: (e) => login(e),
+            onSubmit: login,
             msg: 'Iniciar Sesión'
         }}>
-            <Inputs.TxtInput name={'username'} label={'Usuario'}/>
-            <Inputs.PasswordInput name={'password'} label={'Contraseña'}/>
+            <Inputs.TxtInput name={'username'} label={'Usuario'} onChange={handleChange} value={formData.username}/>
+            <Inputs.PasswordInput name={'password'} label={'Contraseña'} onChange={handleChange} value={formData.password}/>
         </API_FORM>
     );
 }
