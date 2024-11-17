@@ -3,9 +3,9 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const DB = require('./config.js');
 const {login, register, verifyToken} = require('./controllers/authController.js');
-const app = express();
-
 const cors = require('cors');
+
+const app = express();
 
 app.use(cors({
     origin: 'https://web-avanzada-eight.vercel.app',
