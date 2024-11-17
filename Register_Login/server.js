@@ -14,7 +14,7 @@ connect_db();
 
 app.use(express.json());
 
-app.listen(port, 'localhost', ()=>{
+app.listen(port, ()=>{
     console.log('Serv Levantado.');
 });
 
