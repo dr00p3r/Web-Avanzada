@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import API_FORM from './form';
 import Inputs from './inputs.jsx';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function FrmRegister() {
     const actualDate = new Date();
     const formattedDate = actualDate.toISOString().split('T')[0];
-    
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         name: '',
         username: '',
@@ -30,6 +32,7 @@ export default function FrmRegister() {
             'https://web-avanzada-1.onrender.com/register',
             formData
             );
+            useNavigate('/');
         } 
         catch (error) {
             console.error('Error al registrar:', error);
