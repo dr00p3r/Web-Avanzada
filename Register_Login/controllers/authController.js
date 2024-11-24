@@ -70,3 +70,4 @@ const getUserInfo = (req, res) => {
 };
 
 module.exports = { register, login, verifyToken, getUserInfo };
+

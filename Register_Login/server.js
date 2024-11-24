@@ -29,7 +29,7 @@ app.listen(port, ()=>{
 });
 
 app.get("/", (req, res)=>{
-    res.send('Serv Levantado.');
+    res.send('Servidor Levantado.');
 });
 
 app.post(`/login`, login);
