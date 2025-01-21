@@ -1,0 +1,19 @@
+<div class="container">
+<h2>Productos recuperados</h2>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let producto of productos">
+        <td class="card">{{ producto.id }}</td>
+        <td class="card">{{ producto.nombre }}</td>
+        <td class="price">{{ producto.precio | currency: 'USD' }}</td>
+    </tr>
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body class="bg">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <div class="l-centered">
+            <header class="header">
+                <h1 class="header__title">CSMA/CD simulation</h1>
+                <address>By <a href="http://gilden.planet.ee" rel="author">Kristen Gilden</a></address>
+            </header>
+
+            <div class="l-oversized-parent">
+                <object id="js-simulation" class="l-oversized-target simulation" data="img/simulation.svg" type="image/svg+xml"></object>
+            </div>
+
+            <section class="text-section">
+                <h2>Description</h2>
+                <p>
+                    This is a simple simulation of
+                    <abbr title="Carrier Sense Multiple Access With Collision Detection">CSMA/DA</abbr>
+                    on a 5-computer <abbr title="Local Area Network">LAN</abbr>
+                    setup written in JavaScript. The computers can send telegrams
+                    to each other and use <a href="http://en.wikipedia.org/wiki/Exponential_backoff">exponential backoff</a>
+                    to space out repeated retransmissions of the same block of data.
+                </p>
+
+                <p>
+                    A red block means collision, all other colors represent data.
+                    Darker grey squares below each computer indicate the possible
+                    slots the computer can choose for retransmitting. Random
+                    choices are indicated by green. Manually chosen slots are
+                    colored dark red.
+                </p>
+
+                <p>
+                    The number on device screens displays the number of retries
+                    the device has made to transmit a telegram. The number next
+                    to the cable displays the number of slot times left until
+                    the device attempts to retransmit the last packet.
+                </p>
+
+                <p>
+                    Switching on short telegrams illustrates what would happen
+                    if the telegrams were too short. &ndash; the transmitting
+                    device will think the transmission was successful even if
+                    there was a collision.
+                </p>
+
+                <p>
+                    Licenced under <a href="LICENSE">MIT</a>, the full source for
+                    this project can be found at <a href="https://github.com/kgilden/csma-simulator">GitHub</a>.
+                </p>
+            </section>
+            <section>
+                <h2>Instructions</h2>
+                <ul>
+                    <li>
+                        Click on two computers to send a packet from one to the
+                        other;
+                    </li>
+                    <li>
+                        For deterministic slot times click on any of the numbered
+                        buttons. The device above will then always wait until the
+                        given slot time to transmit its telegram. Clicking on the
+                        chosen button again will enable random slot time selection;
+                    </li>
+                    <li>
+                        The simulation can be paused at any time using the button
+                        in the lower left corner. Mouse events won't be disabled
+                        so you could for example issue several transmits and
+                        unpause to synchronise;
+                    </li>
+                    <li>
+                        You can unpause by clicking on the pause button again;
+                    </li>
+                    <li>
+                        FPS can be controlled by clicking on the two arrow buttons
+                        on the lower left corner;
+                    </li>
+                    <li>
+                        To change the packet length, either click on "Long telegram"
+                        or "Short telegram";
+                    </li>
+                </ul>
+            </section>
+
+            <footer class="footer">
+                <hr />
+                <small>
+                    &copy; 2013 Kristen Gilden, supervised by Rein Paluoja <br />
+                    <a href="http://www.ttu.ee/en/">Tallinn University of Technology</a>
+                </small>
+                <a href="https://github.com/kgilden"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+            </footer>
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/jquery/classes.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/kg/tlg-builder.js"></script>
+        <script src="js/kg/packet.js"></script>
+        <script src="js/kg/device.js"></script>
+        <script src="js/kg/numpad.js"></script>
+        <script src="js/kg/cable.js"></script>
+        <script src="js/kg/simulator.js"></script>
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
+</html>

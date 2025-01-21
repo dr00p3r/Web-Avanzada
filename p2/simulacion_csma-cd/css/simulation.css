@@ -1,0 +1,145 @@
+.st0 {
+    fill: #58585A;
+}
+
+.st1 {
+    font-family: 'Arial';
+    font-weight: bold;
+}
+
+.st2 {
+    fill: #FFFFFF;
+}
+
+.st3 {
+    font-family: 'Arial';
+}
+
+.st4 {
+    font-size: 24;
+}
+
+.txt-retry-count {
+    text-anchor: middle;
+}
+
+.txt-tlg-long,
+.txt-tlg-short {
+    cursor: pointer;
+}
+
+.txt-fps,
+.txt-retry-count,
+.txt-tlg-long,
+.txt-tlg-short {
+    font-family: 'Arial';
+    font-weight: bold;
+    font-size: 24px;
+    fill: #58585A;
+}
+
+.txt-tlg-active {
+    fill: #9FEE00;
+}
+
+.txt-waittime {
+    font-family: 'Arial';
+    font-size: 24px;
+    fill: #58585A;
+    text-anchor: middle;
+}
+
+.btn-pause-inactive,
+.btn-pause-active {
+    cursor: pointer;
+    fill: #F5F5FA;
+}
+
+.btn-box {
+    fill: #F5F5FA;
+}
+
+.btn-pause-inactive:hover > path,
+.btn-pause-active:hover > path {
+    fill: #9FEE00;
+}
+
+.btn-pause-inactive:active > path,
+.btn-pause-active:active > path {
+    fill: #58585A;
+}
+
+.btn-pause-inactive > path {
+    fill: #58585A;
+}
+
+.btn-pause-active > path {
+    fill: #B30000;
+}
+
+.btn-speed {
+    cursor: pointer;
+}
+
+.btn-speed:hover .btn-speed-icon {
+    fill: #9FEE00;
+}
+
+.btn-speed:active .btn-speed-icon {
+    fill: #58585A;
+}
+
+.btn-speed-icon {
+    fill: #58585A;
+}
+
+.device {
+    cursor: pointer;
+}
+
+.device-bg {
+    fill: #F5F5FA;
+}
+
+.device-screen {
+    fill: #F5F5FA;
+}
+
+.numpad-key {
+    fill: #A2A2A6;
+    cursor: pointer;
+}
+
+/* Indicates that this key may be chosen/selected */
+.numpad-key-active {
+    fill: #58585A;
+}
+
+/* This key was chosen as a slot time */
+.numpad-key-chosen {
+    fill: #9FEE00;
+}
+
+/* This key was manually selected to be a slot time */
+.numpad-key-selected {
+    fill: #B30000;
+}
+
+/* Default color. */
+.cbl-empty { fill: none; }
+
+/* Data flowing through the cables. */
+.cbl-dat-0 { fill: #9FEE00; }
+.cbl-dat-1 { fill: #96E000; }
+.cbl-dat-2 { fill: #8DD400; }
+.cbl-dat-3 { fill: #85C700; }
+.cbl-dat-4 { fill: #8DD400; }
+.cbl-dat-5 { fill: #96E000; }
+
+/* Collision flowing through the cables. */
+.cbl-nok-0 { fill: #FF0000; }
+.cbl-nok-1 { fill: #E60000; }
+.cbl-nok-2 { fill: #CC0000; }
+.cbl-nok-3 { fill: #B30000; }
+.cbl-nok-4 { fill: #CC0000; }
+.cbl-nok-5 { fill: #E60000; }
